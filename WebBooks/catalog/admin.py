@@ -19,7 +19,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('book', 'status')
     fieldsets = (
         ('Экземляр книги', {'fields':('book', 'inv_nom',)}),
-        ('Статус', {'fields': ('status',)}),
+        ('Статус', {'fields': ('status', 'due_back')}),
     )
 # admin.site.register(Book)
 # admin.site.register(BookInstance)

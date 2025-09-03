@@ -99,6 +99,14 @@ class BookInstance(models.Model):
                               null=True,
                               help_text='Изменить состояние экземляра',
                               verbose_name='Статус экземляра книги')
+
+    due_back = models.DateField(null=True,
+                                blank=True,
+                                help_text='Введите конец срока статуса',
+                                verbose_name='Дата окончания статуса')
+
+    class Meta:
+        ordering = ['due_back']
     def __str__(self):
         return '%s %s %s' % (self.inv_nom,self.book,self.status)
 

@@ -1,0 +1,44 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center mb-4">{{ text_head }}</h2>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4>{{ name }}</h4>
+      <p><strong>Адрес:</strong> {{ address }}</p>
+      <p><strong>Телефон:</strong> {{ tel }}</p>
+      <p><strong>Email:</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>
+    </div>
+    <div class="col-md-6">
+
+      <div id="map" style="width: 100%; height: 350px; border: 1px solid #ccc;"></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(init);
+  function init(){
+    var myMap = new ymaps.Map("map", {
+      center: [55.8191, 37.4136], // Координаты Москва, ул. Планерная, д. 20, к. 1 (пример)
+      zoom: 15,
+      controls: ['zoomControl', 'fullscreenControl']
+    });
+
+    var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+      hintContent: '{{ name }}',
+      balloonContent: '{{ address }}'
+    }, {
+      preset: 'islands#redDotIcon'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+  }
+</script>
+{% endblock %}
+

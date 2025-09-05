@@ -1,0 +1,66 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">  <!-- Center content on larger screens -->
+        <h2 class="text-center display-4 mb-4">{{ text_head }}</h2>
+        <p class="lead text-center mb-4">{{ description }}</p>
+
+        <div id="aboutCarousel" class="carousel slide shadow-lg mb-5" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="Классическая литература" style="height: 400px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-6">{{ slide1_text }}</h5>
+                <p>Погрузитесь в мир вечной классики.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="Современная проза" style="height: 400px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-6">{{ slide2_text }}</h5>
+                <p>Откройте для себя новые имена и захватывающие истории.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/3.jpg' %}" class="d-block w-100" alt="Детская литература" style="height: 400px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-6">{{ slide3_text }}</h5>
+                <p>Подарите детям радость чтения.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/4.jpg' %}" class="d-block w-100" alt="Учебная литература" style="height: 400px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-6">{{ slide4_text }}</h5>
+                <p>Все необходимое для учебы и развития.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+          </button>
+        </div>
+
+
+        <h3 class="text-center display-6 mt-4">Наша миссия</h3>
+        <p class="text-center">Сделать чтение доступным и приятным для каждого.</p>
+
+        <h3 class="text-center display-6 mt-4 mb-4">Наши преимущества</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Широкий ассортимент книг</li>
+          <li class="list-group-item">Удобный поиск и навигация</li>
+          <li class="list-group-item">Выгодные цены и акции</li>
+          <li class="list-group-item mb-5">Быстрая доставка</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
